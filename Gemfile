@@ -18,6 +18,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'devise', '~> 4.2'
 gem 'toastr-rails', '~> 1.0'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 
 group :development, :test do
