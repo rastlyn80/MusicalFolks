@@ -1,24 +1,21 @@
-# README
+# VENUE MODEL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The current state of the Venue Model
 
-Things you may want to cover:
+VENUE
+    listing_name: string
+    type: private home, concert hall, church, garage, recording studio, rehearsal venue
+    description: text
+    address: string
+    max_guests: integer
+    instruments: none, piano, drums, organ, harp, double bass
+    preferred_style: any, classical, chamber, rock, metal, pop
+    hosts_events: boolean
+    has_recording: boolean
+    has_wifi: boolean
+    has_heating: boolean
+    has_conditioning: boolean
+    price: integer
+    active: boolean
+    user: references
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  listing_name: MyString
+  type: 
+  description: MyText
+  address: MyString
+  max_guests: 1
+  instruments: MyString
+  preferred_style: MyString
+  hosts_events: false
+  has_recording: false
+  has_wifi: false
+  has_heating: false
+  has_conditioning: false
+  price: 1
+  active: false
+  user: one
+
+two:
+  listing_name: MyString
+  type: 
+  description: MyText
+  address: MyString
+  max_guests: 1
+  instruments: MyString
+  preferred_style: MyString
+  hosts_events: false
+  has_recording: false
+  has_wifi: false
+  has_heating: false
+  has_conditioning: false
+  price: 1
+  active: false
+  user: two
