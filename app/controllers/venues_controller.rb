@@ -15,7 +15,8 @@ class VenuesController < ApplicationController
     if @venue.save
       redirect_to listing_venue_path(@venue), notice: "Venue saved successfully!"
     else
-      render :new, notice: "Something went wrong when saving your venue..."
+      flash[:alert] = "Something went wrong when saving your venue..."
+      render :new
     end 
   end
 
@@ -44,7 +45,7 @@ class VenuesController < ApplicationController
     if @venue.update(venue_params)
       flash[:notice] = "Changes saved successfully!"
     else
-      flash[:notice] = "Something went wrong when saving your changes"
+      flash[:alert] = "Something went wrong when saving your changes"
     end  
     redirect_back(fallback_location: request.referer)
   end

@@ -1,7 +1,7 @@
 # TO DO
 - Remove the hosts_events field from the Amenities view and put it in its own section
-- Fix the bug that prevents alerts to display when venues are not created
 - Fix the password confirmation bug (it doesn't require a confirmation!) in the devise view
+- Pricing will need to be much more flexible.
 
 # VENUE MODEL
 The current state of the Venue Model
