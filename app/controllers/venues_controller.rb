@@ -1,4 +1,4 @@
-class VenueController < ApplicationController
+class VenuesController < ApplicationController
   before_action :set_venue, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
 
@@ -56,7 +56,7 @@ class VenueController < ApplicationController
 
   def venue_params
     params.require(:venue).permit(:listing_name, 
-                                  :type, 
+                                  :venue_type, 
                                   :description, 
                                   :address, 
                                   :max_guests, 

@@ -1,9 +1,10 @@
 class Venue < ApplicationRecord
   belongs_to :user
 
-  validates :type, presence: true
-  validates :listing_name, presence: true
-  validates :address, presence: true
-  validates :description, presence: true
+  validates :venue_type, presence: true
+  validates :instruments, presence: true
+  validates :max_guests, presence: true
+  validates :preferred_style, presence: true
+  
   
 end

@@ -1,0 +1,81 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Create your Musical Venue
+    </div>
+    <div class="panel-body">
+        <div class="container">
+            <%= form_for @venue do |f| %>
+                <div class="row">
+
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Venue Type</label>
+                            <%= f.select :venue_type, [
+                              ["Private Home", "Private Home"],
+                              ["Concert Hall", "Concert Hall"],
+                              ["Drums", "Drums"],
+                              ["Community Centre", "Community Centre"],
+                              ["Garage", "Garage"],
+                              ["Recording Studio", "Recording Studio"],
+                              ["Rehearsal Venue", "Rehearsal Venue"]
+                              ], id: "venue_type", prompt: "Select the Venue Type...", class: "form-control" %>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 select">
+                            <div class="form-group">
+                                <label>Maximum Musicians</label>
+                                <%= f.select :max_guests, [
+                                  ["1", 1],
+                                  ["2", 2],
+                                  ["3", 3],
+                                  ["4", 4],
+                                  ["5", 5],
+                                  ["6", 6],
+                                  ["7", 7],
+                                  ["8", 8],
+                                  ["9", 9],
+                                  ["10+", 10]
+                                  ], id: "max_guests", prompt: "Maximum musicians allowed...", class: "form-control" %>
+                            </div>
+                    </div>
+
+                    <div class="col-md-4 select">
+                            <div class="form-group">
+                                <label>Instruments</label>
+                                <%= f.select :instruments, [
+                                  ["none", "none"],
+                                  ["Upright Piano", "Upright Piano"],
+                                  ["Baby Grand Piano", "Baby Grand Piano"],
+                                  ["Concert Grand Piano", "Concert Grand Piano"],
+                                  ["Drums", "Drums"],
+                                  ["Organ", "Organ"],
+                                  ["Harp", "Harp"]
+                                  ], id: "instruments", prompt: "Select your instruments...", class: "form-control" %>
+                            </div>
+                    </div>
+
+                    <div class="col-md-4 select">
+                            <div class="form-group">
+                                <label>Preferred Style</label>
+                                <%= f.select :preferred_style, [
+                                  ["Any", "Any"],
+                                  ["Classical", "Classical"],
+                                  ["Chamber", "Chamber"],
+                                  ["Rock", "Rock"],
+                                  ["Metal", "Metal"],
+                                  ["Pop", "Pop"],
+                                  ["Folk", "Folk"]
+                                  ], id: "preferred_style", prompt: "Select your preferred style...", class: "form-control" %>
+                            </div>
+                    </div>
+
+
+                </div>
+
+            <div><%= f.submit "Create my Venue", class: "btn btn-normal" %></div>
+
+            <% end %>
+        </div>
+    </div>
+</div>
