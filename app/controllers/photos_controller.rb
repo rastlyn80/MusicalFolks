@@ -15,10 +15,10 @@ class PhotosController < ApplicationController
 
     def destroy
         @photo = Photo.find(params[:id])
-        venue = @photo.venue
+        @venue = @photo.venue
         
         @photo.destroy
-        @photos = Photo.where(venue_id: venue.id)
+        @photos = Photo.where(venue_id: @venue.id)
 
         respond_to :js
     end
