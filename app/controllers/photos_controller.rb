@@ -12,4 +12,14 @@ class PhotosController < ApplicationController
             redirect_back(fallback_location: request.referer, notice: "Saved!")
         end
     end
+
+    def destroy
+        @photo = Photo.find(params[:id])
+        venue = @photo.venue
+        
+        @photo.destroy
+        @photos = Photo.where(venue_id: venue.id)
+
+        respond_to :js
+    end
 end

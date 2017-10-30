@@ -2,6 +2,7 @@
 - Remove the hosts_events field from the Amenities view and put it in its own section
 - Fix the password confirmation bug (it doesn't require a confirmation!) in the devise view
 - Pricing will need to be much more flexible.
+- Eventually, the images will be stored on Amazon S3.
 
 # VENUE MODEL
 The current state of the Venue Model
