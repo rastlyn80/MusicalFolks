@@ -46,7 +46,9 @@ class VenuesController < ApplicationController
   end
 
   def update
-    if @venue.update(venue_params)
+    new_params = venue_params
+    new_params = venue_params.merge(active: true) if venue_is_ready
+    if @venue.update(new_params)
       flash[:notice] = "Changes saved successfully!"
     else
       flash[:alert] = "Something went wrong when saving your changes"
@@ -78,5 +80,9 @@ class VenuesController < ApplicationController
                                   :has_conditioning, 
                                   :price, 
                                   :active )
+  end
+
+  def venue_is_ready
+    !@venue.active && !@venue.price.blank? && !@venue.listing_name.blank? && !@venue.photos.blank? && !@venue.address.blank?  
   end
 end

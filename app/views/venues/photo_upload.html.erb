@@ -17,13 +17,13 @@
                                     <span class="btn btn-default btn-file text-babu">
                                         <i class = "fa fa-cloud-upload" aria-hidden="true"></i>
                                         Select Photos
-                                        <%= file_field_tag "images[]", type: :file, multiple: true %>
+                                        <%= file_field_tag "images[]", type: :file, multiple: true, id: "photo-upload" %>
                                     </span>
                                 </div>
                             </div>
 
                             <div class="text-center">
-                                <%= f.submit "Add Photos", class: "btn btn-form" %>
+                                <%= f.submit "Add Photos", class: "btn btn-form", id: "submit-photo" %>
                             </div>
                           <% end %>
                       </div>
@@ -35,3 +35,16 @@
       </div>
     </div>
 </div>
+
+<script> 
+//Disable submit button if no files is selected
+$(document).ready(function(){
+    $('#submit-photo').prop('disabled',true); 
+    $('#photo-upload').change(function(){ 
+    if($("#photo-upload")[0].files.length !=0)
+        $('#submit-photo').attr('disabled', false);            
+    else
+        $('#submit-photo').attr('disabled',true);
+     });
+});  
+ </script>
