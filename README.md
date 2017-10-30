@@ -3,7 +3,6 @@
 - Fix the password confirmation bug (it doesn't require a confirmation!) in the devise view
 - Pricing will need to be much more flexible.
 - Eventually, the images will be stored on Amazon S3.
-- FIX the bug on the Photo upload (when press add photos without selecting none, it goes blank)
 - Refactor the active logic on the _venue_menue page and put it inside a controller
 
 # VENUE MODEL
