@@ -36,7 +36,7 @@ class VenuesController < ApplicationController
   end
 
   def photo_upload
-    @photo = @venue.photos
+    @photos = @venue.photos
   end
 
   def amenities
