@@ -2,6 +2,9 @@ class Venue < ApplicationRecord
   belongs_to :user
   has_many :photos
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   validates :venue_type, presence: true
   validates :instruments, presence: true
   validates :max_guests, presence: true
@@ -14,4 +17,5 @@ class Venue < ApplicationRecord
       "blank.jpg"
     end
   end
+
 end
