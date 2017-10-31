@@ -24,6 +24,7 @@ class VenuesController < ApplicationController
   end
 
   def show
+    @photos = @venue.photos
   end
 
   def listing
