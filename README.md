@@ -5,6 +5,7 @@
 - Eventually, the images will be stored on Amazon S3.
 - Refactor the active logic on the _venue_menue page and put it inside a controller
 - Make geocoder.rb flexible so that you can easily change from km to miles depending on your configuration
+- Turn datepicker into datetime picker
 
 # VENUE MODEL
 The current state of the Venue Model
