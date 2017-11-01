@@ -43,22 +43,40 @@
 
 
 <script>
-        jQuery('#startpicker').periodpicker({
+    var d = new Date();
+    var curr_day = d.getDate();
+    var curr_month = d.getMonth() + 1;
+    var curr_year = d.getFullYear();
+    var formatted_date = curr_day.toString() + "." + curr_month.toString() + "." +curr_year.toString();
+
+    var startPicker = $('#startpicker');    
+
+        startPicker.periodpicker({
             norange: true, // use only one value
             cells: [1, 1], // show only one month
         
             resizeButton: false, // deny resize picker
-            fullsizeButton: false,
+            fullsizeButton: true,
             fullsizeOnDblClick: false,
-        
+            animation: true,
+            showDatepickerInputs: false,
+            showTimepickerInputs: false,      
+
+            minDate: new Date(),
+            formatDate: 'D.MM.YYYY',
+            
             timepicker: true, // use timepicker
             timepickerOptions: {
                 hours: true,
                 minutes: true,
                 seconds: false,
-                ampm: true
+                ampm: true,
+                steps:[1,30,0,1]                
             }
         });
+
+                
+
         jQuery('#endpicker').periodpicker({
             norange: true, // use only one value
             cells: [1, 1], // show only one month
