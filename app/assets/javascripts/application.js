@@ -16,3 +16,6 @@
 //= require rails-ujs
 //= require_tree .
 //= require toastr
+//= require jquery.timepicker.min
+//= require jquery.periodpicker.full.min
+

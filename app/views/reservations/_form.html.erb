@@ -6,13 +6,14 @@
     <div class="panel-body">
         <%= form_for([@venue, @venue.reservations.new]) do |f| %>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <label>Start</label>
-                <%= f.text_field :start_date, readonly: true, placeholder: "Start", class: "form-control datepicker" %>                
+
+                <%= f.text_field :start_date, readonly: true, placeholder: "Start", class: "form-control", id: "startpicker" %>                
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <label>End</label>                    
-                <%= f.text_field :end_date, readonly: true, placeholder: "End", class: "form-control datepicker", disabled: true %>                                    
+                <%= f.text_field :end_date, readonly: true, placeholder: "End", class: "form-control", id: "endpicker", disabled: true %>                                    
             </div>
         </div>      
         <div id="preview" style="display: none">
@@ -42,12 +43,37 @@
 
 
 <script>
-    $(function() {
-        $('#reservation_start_date').datepicker({
-            dateFormat: 'dd-mm-yy'
+        jQuery('#startpicker').periodpicker({
+            norange: true, // use only one value
+            cells: [1, 1], // show only one month
+        
+            resizeButton: false, // deny resize picker
+            fullsizeButton: false,
+            fullsizeOnDblClick: false,
+        
+            timepicker: true, // use timepicker
+            timepickerOptions: {
+                hours: true,
+                minutes: true,
+                seconds: false,
+                ampm: true
+            }
         });
-        $('#reservation_end_date').datepicker({
-            dateFormat: 'dd-mm-yy'
+        jQuery('#endpicker').periodpicker({
+            norange: true, // use only one value
+            cells: [1, 1], // show only one month
+        
+            resizeButton: false, // deny resize picker
+            fullsizeButton: false,
+            fullsizeOnDblClick: false,
+        
+            timepicker: true, // use timepicker
+            timepickerOptions: {
+                hours: true,
+                minutes: true,
+                seconds: false,
+                ampm: true
+            }
         });
-    });
+        
 </script>
