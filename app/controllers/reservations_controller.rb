@@ -26,6 +26,10 @@ class ReservationsController < ApplicationController
         @rehearsals = current_user.reservations.order(start_date: :asc)
     end
 
+    def your_reservations
+        @venues = current_user.venues
+    end
+
     private
     def reservation_params
         params.require(:reservation).permit(:start_date, :end_date)
