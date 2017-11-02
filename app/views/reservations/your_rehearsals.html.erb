@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-3">
+        <ul class="sidebar-list">
+            <li class="sidebar-item"><%= link_to "Your Listings", venues_path, class:"sidebar-link" %></li>
+            <li class="sidebar-item"><%= link_to "Your Reservations", venues_path, class:"sidebar-link" %></li>            
+            <li class="sidebar-item"><%= link_to "Your Rehearsals", your_rehearsals_path, class:"sidebar-link active" %></li>            
+
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Your Rehearsals
+            </div>
+            <div class="panel-body">
+                <% @rehearsals.each do |rehearsal| %>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <%= rehearsal.start_date.strftime('%v') %>
+                        </div>
+                        <div class="col-md-2">
+                            <%= link_to venue_path(rehearsal.venue) do %>
+                                <%= image_tag rehearsal.venue.cover_photo(:thumb) %>
+                            <% end %>
+                        </div>
+                        <div class="col-md-8">
+                            <%= link_to rehearsal.venue.listing_name, venue_path(rehearsal.venue) %>
+                            <span class="pull-right text-center">
+                                <%= image_tag avatar_url(rehearsal.venue.user), class: "img-circle avatar-medium" %>
+                                <br/>
+                                <%= link_to user_path(rehearsal.venue.user) do %>
+                                    <%= rehearsal.venue.user.fullname %>
+                                <% end %>
+                            </span>
+                        </div>
+
+                    </div>
+                    <% if rehearsal != @rehearsals.last %>
+                        <hr/>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

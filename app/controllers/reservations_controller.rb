@@ -22,6 +22,10 @@ class ReservationsController < ApplicationController
         redirect_to venue
     end
 
+    def your_rehearsals
+        @rehearsals = current_user.reservations.order(start_date: :asc)
+    end
+
     private
     def reservation_params
         params.require(:reservation).permit(:start_date, :end_date)
