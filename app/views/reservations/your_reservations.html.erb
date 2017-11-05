@@ -24,8 +24,8 @@
                                     <%= image_tag reservation.venue.cover_photo(:thumb) %>
                                 <% end %>
                             </div>
-                            <div class="col-md-8">
-                                <%= link_to reservation.venue.listing_name, venue_path(reservation.venue) %>
+                            <div class="col-md-5">
+                                <%= link_to reservation.venue.listing_name, venue_path(reservation.venue) %><br/><br/>
                                 <br/>
                                     <span>
                                         <%= link_to user_path(reservation.user) do %>                                   
@@ -33,6 +33,9 @@
                                             <%= reservation.user.fullname %>
                                         <% end %>                                        
                                     </span>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <%= render partial: "reviews/host_form", locals: {reservation: reservation} %>
                             </div>
                         </div>
                         <hr/>

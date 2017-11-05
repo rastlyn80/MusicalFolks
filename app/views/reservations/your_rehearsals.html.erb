@@ -22,15 +22,18 @@
                                 <%= image_tag rehearsal.venue.cover_photo(:thumb) %>
                             <% end %>
                         </div>
-                        <div class="col-md-8">
-                            <%= link_to rehearsal.venue.listing_name, venue_path(rehearsal.venue) %>
-                            <span class="pull-right text-center">
-                                <%= image_tag avatar_url(rehearsal.venue.user), class: "img-circle avatar-medium" %>
+                        <div class="col-md-5">
+                            <%= link_to rehearsal.venue.listing_name, venue_path(rehearsal.venue) %><br/><br/>
+                            <span>
+                                <%= image_tag avatar_url(rehearsal.venue.user), class: "img-circle avatar-small" %>
                                 <br/>
                                 <%= link_to user_path(rehearsal.venue.user) do %>
                                     <%= rehearsal.venue.user.fullname %>
                                 <% end %>
                             </span>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <%= render partial: "reviews/guest_form", locals: {reservation: rehearsal} %>
                         </div>
 
                     </div>
