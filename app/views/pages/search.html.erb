@@ -1,0 +1,203 @@
+<div class="main">
+    <div class="left">
+        <!-- Search Panel -->
+        <div class="row">
+            <br/>
+            <div class="collapse" id="collapsePanel">
+                <%= search_form_for @search, url: search_path do %>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label>Price Range:</label>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Min Price:</label>
+                            <%= f.text_field :price_gteq, class: "form-control" %>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Max Price:</label>
+                            <%= f.text_field :price_lteq, class: "form-control" %>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                                <%= text_field_tag :start_date, params[:start_date],
+                                readonly: true, 
+                                placeholder: "Start Date", 
+                                class: "form-control datepicker",
+                                id: "startpicker"  %>           
+                        </div>
+                        <div class="col-md-6">
+                                <%= text_field_tag :end_date, params[:end_date], 
+                                readonly: true,                                 
+                                placeholder: "End Date", 
+                                class: "form-control datepicker",
+                                id: "endpicker"  %>   
+                        </div>
+                    </div>
+
+                    <hr>/
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[venue_type_eq_any][]", "Private Home" %> Private Home
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[venue_type_eq_any][]", "Concert Hall" %> Concert Hall
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[venue_type_eq_any][]", "Rehearsal Venue" %> Rehearsal Venue
+                        </div>       
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[venue_type_eq_any][]", "Recording Studio" %> Recording Studio
+                        </div>       
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[venue_type_eq_any][]", "Church" %> Church
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[venue_type_eq_any][]", "Garage" %> Garage
+                        </div>                                
+                    </div>
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group select">
+                                <label>Maximum Musicians</label>
+                                <%= f.select :max_guests_gteq, [
+                                ["1", 1],
+                                ["2", 2],
+                                ["3", 3],
+                                ["4", 4],
+                                ["5", 5],
+                                ["6", 6],
+                                ["7", 7],
+                                ["8", 8],
+                                ["9", 9],
+                                ["10+", 10]
+                                ], id: "max_guests", prompt: "Maximum musicians allowed...", class: "form-control" %>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group select">
+                                <label>Instruments</label>
+                                <%= f.select :instruments_eq_any, [
+                                    ["none", "none"],
+                                    ["Upright Piano", "Upright Piano"],
+                                    ["Baby Grand Piano", "Baby Grand Piano"],
+                                    ["Concert Grand Piano", "Concert Grand Piano"],
+                                    ["Drums", "Drums"],
+                                    ["Organ", "Organ"],
+                                    ["Harp", "Harp"]
+                                    ], id: "instruments", prompt: "Select your instruments...", class: "form-control" 
+                                %>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group select">
+                                <label>Preferred Style</label>
+                                <%= f.select :preferred_style_eq_any, [
+                                    ["Any", "Any"],
+                                    ["Classical", "Classical"],
+                                    ["Chamber", "Chamber"],
+                                    ["Rock", "Rock"],
+                                    ["Metal", "Metal"],
+                                    ["Pop", "Pop"],
+                                    ["Folk", "Folk"]
+                                    ], id: "preferred_style", prompt: "Select your preferred style...", class: "form-control" 
+                                %>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[hosts_events_eq]", true %> Organises Events
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[has_recording_eq]", true %> Recording Equipment
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[has_wifi_eq]", true %> Internet
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[has_heating_eq]", true %> Heating
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[has_conditioning_eq]", true %> Air Conditioning
+                        </div>                    
+                    </div>
+                    <hr/>
+
+                    <div class="row text-center">
+                        <%= f.submut "Search", class: "btn btn-form" %>
+                    </div>
+
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <!-- Google MAP -->
+    </div>
+</div>
+
+
+<script>
+        var d = new Date();
+        var curr_day = d.getDate();
+        var curr_month = d.getMonth() + 1;
+        var curr_year = d.getFullYear();
+        var formatted_date = curr_day.toString() + "." + curr_month.toString() + "." +curr_year.toString();
+    
+        var startPicker = $('#startpicker');    
+    
+            startPicker.periodpicker({
+                norange: true, // use only one value
+                cells: [1, 1], // show only one month
+            
+                resizeButton: false, // deny resize picker
+                fullsizeButton: true,
+                fullsizeOnDblClick: false,
+                animation: true,
+                showDatepickerInputs: false,
+                showTimepickerInputs: false,      
+    
+                minDate: new Date(),
+                formatDate: 'D.MM.YYYY',
+                
+                timepicker: true, // use timepicker
+                timepickerOptions: {
+                    hours: true,
+                    minutes: true,
+                    seconds: false,
+                    ampm: true,
+                    steps:[1,30,0,1]                
+                }
+            });
+    
+                    
+    
+            jQuery('#endpicker').periodpicker({
+                norange: true, // use only one value
+                cells: [1, 1], // show only one month
+            
+                resizeButton: false, // deny resize picker
+                fullsizeButton: false,
+                fullsizeOnDblClick: false,
+            
+                timepicker: true, // use timepicker
+                timepickerOptions: {
+                    hours: true,
+                    minutes: true,
+                    seconds: false,
+                    ampm: true
+                }
+            });
+            
+    </script>
