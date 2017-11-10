@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <%= text_field_tag :search, params[:search], 
                             placeholder: "Where do you want to rehearse?", 
-                            class: "form-control"  %>
+                            class: "form-control", id: "autolocation"  %>
         </div>
         <div class="col-md-3">
                 <%= text_field_tag :start_date, params[:start_date], 
@@ -127,4 +127,10 @@
                 }
             });
             
+    </script>
+
+    <script>
+        $(function() {
+            $("#autolocation").geocomplete();
+        });
     </script>
