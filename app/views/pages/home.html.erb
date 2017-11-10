@@ -1,3 +1,9 @@
+<div class="row">
+    <div class="col-md-7 banner">
+        <h1><span class="text-red">MusicalFolks</span> Book unique rehearsing venues everywhere</h1>
+    </div>
+</div>
+
 <%= form_tag search_path, method: :get do %>
     <div class="row">
         <div class="col-md-6">
@@ -42,13 +48,43 @@
                     <%= image_tag venue.cover_photo(:medium) %>
                 </div>
                 <div class="panel-body">
-                    <%= link_to venue.listing_name %>
+                    <%= link_to venue.listing_name, venue %>
                 </div>
             </div>
         </div>
     <% end %>
 </div>
 
+<!-- EVENTS -->
+<div><h3>Events</h3></div>
+<br/>
+
+<!-- CITIES -->
+<div><h3>Cities</h3></div>
+<br/>
+
+<div class="row">
+    <div class="col-md-3 col-sm-12">
+        <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=London">
+        <div class="discovery-card" style="background-image: url('/assets/LD.jpg')">
+        </div></a>
+    </div>
+    <div class="col-md-3 col-sm-12">
+        <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=Los+Angeles">
+        <div class="discovery-card" style="background-image: url('/assets/LA.jpg')">
+        </div></a>
+    </div>
+    <div class="col-md-3 col-sm-12">
+        <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=Paris">
+        <div class="discovery-card" style="background-image: url('/assets/LD.jpg')">
+        </div></a>
+    </div>
+    <div class="col-md-3 col-sm-12">
+        <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=Miami">
+        <div class="discovery-card" style="background-image: url('/assets/MI.jpg')">
+        </div></a>
+    </div>
+</div>
 
 <script>
         var d = new Date();
