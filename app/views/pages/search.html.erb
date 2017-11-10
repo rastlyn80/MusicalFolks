@@ -4,7 +4,7 @@
         <div class="row">
             <br/>
             <div class="collapse" id="collapsePanel">
-                <%= search_form_for @search, url: search_path do %>
+                <%= search_form_for @search, url: search_path do |f| %>
                     <div class="row">
                         <div class="col-md-8">
                             <label>Price Range:</label>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
 
-                    <hr>/
+                    <hr/>
 
                     <div class="row">
                         <div class="col-md-4">
@@ -134,9 +134,24 @@
                     <hr/>
 
                     <div class="row text-center">
-                        <%= f.submut "Search", class: "btn btn-form" %>
+                        <%= f.submit "Search", class: "btn btn-form" %>
                     </div>
 
+                <% end %>
+            </div>
+            <br/>
+            <div class="row">
+                <% @arrVenues.each do |venue| %>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading preview">
+                                <%= image_tag venue.cover_photo(:medium) %>
+                            </div>
+                            <div class="panel-body">
+                                <%= link_to venue.listing_name %>
+                            </div>
+                        </div>
+                    </div>
                 <% end %>
             </div>
         </div>
