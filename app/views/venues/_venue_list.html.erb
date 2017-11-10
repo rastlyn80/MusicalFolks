@@ -5,8 +5,21 @@
                 <%= image_tag venue.cover_photo(:medium) %>
             </div>
             <div class="panel-body">
-                <%= link_to venue.listing_name %>
+                <%= link_to venue.listing_name, venue %><br/>
+                £<%= venue.price %> - <%= venue.venue_type %> - <%= pluralize(venue.max_guests, "max guest") %>
+                <div id="star_<%= venue.id %>"></div><%= pluralize(venue.guest_reviews.count, "review") %>
             </div>
         </div>
     </div>
+
+    <script>
+            $('#star_<%= venue.id %>').raty({
+              path: '/assets',
+              readOnly: true,
+              score: <%= venue.average_rating %>
+            });
+    </script>
+
 <% end %>
+
+

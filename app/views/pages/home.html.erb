@@ -41,18 +41,7 @@
 <br/>
 
 <div class="row">
-    <% @venues.each do |venue| %>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading preview">
-                    <%= image_tag venue.cover_photo(:medium) %>
-                </div>
-                <div class="panel-body">
-                    <%= link_to venue.listing_name, venue %>
-                </div>
-            </div>
-        </div>
-    <% end %>
+    <%= render partial: "venues/venue_list", locals: {venues: @venues} %>
 </div>
 
 <!-- EVENTS -->

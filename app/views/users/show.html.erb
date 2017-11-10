@@ -27,18 +27,7 @@
         <h4>Listings (<%= @venues.length %>)</h4><br/>
 
         <div class="row">
-            <% @venues.each do |venue| %>
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading preview">
-                            <%= image_tag venue.cover_photo(:medium) %>
-                        </div>
-                        <div class="panel-body">
-                            <%= link_to venue.listing_name %>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
+            <%= render partial: "venues/venue_list", locals: {venues: @venues} %>
         </div>
 
         <h4>Reviews from Guests (<%= @guest_reviews.count %>)</h4>
