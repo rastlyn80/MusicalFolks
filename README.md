@@ -7,7 +7,7 @@
 - Make geocoder.rb flexible so that you can easily change from km to miles depending on your configuration
 - Refactor the repeated code inside the Profile view
 - Make the AJAX calls in the search function indipendent from pressing Search
-
+- Refactor the user/verification sidebar and put it in a partial (used in dashboard AND user show)
 # VENUE MODEL
 The current state of the Venue Model
 
