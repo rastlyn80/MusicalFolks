@@ -18,4 +18,5 @@
 //= require rails-ujs
 //= require_tree .
 //= require toastr
+//= require datetime
 

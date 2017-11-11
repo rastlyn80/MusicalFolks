@@ -212,83 +212,6 @@
 
 <script>
 
-    var minimumDateTime = moment();
-    var currentHour = moment().hour();
-    var currentMinutes = moment().minutes();
-
-    var tempHour;
-    var tempMinHour;
-
-    var tempMin;
-    var tempMax;
-
-
-
-    if( currentMinutes <= 30 ) {
-        currentMinutes = 0;
-        currentHour += 1;
-    } else {    
-        currentMinutes = 0;
-        currentHour += 2;
-    }
-
-
-    minimumDateTime = moment().hour(currentHour);
-    minimumDateTime = moment(minimumDateTime).minutes(currentMinutes);
-
-
-
-
-    $(function () {
-        $('#startdate').datetimepicker({
-            minDate: minimumDateTime,
-            stepping: 60
-        });
-
-
-        $('#enddate').datetimepicker({
-            useCurrent: false,            
-            minDate: moment(minimumDateTime).hour(currentHour+1),
-            stepping: 60            
-        });
-
-        
-
-        $("#startdate").on("dp.change", function (e) {
-            if( !e.date  ) {
-                $('#enddate').data("DateTimePicker").clear();
-                $('#enddate').data("DateTimePicker").disable();
-            } else {
-                if( e.date.hour() == 23 ) {
-                    tempHour = 0;
-                } else {
-                    tempHour = 23;
-                }
-                tempMinHour = e.date.hour() + 1;
-    
-                tempMin = moment(e.date).hour(tempMinHour);
-                tempMin = moment(tempMin).minutes(0);
-    
-                tempMax = moment(e.date).hour(tempHour);
-                tempMax = moment(tempMax).minutes(0);
-    
-                $('#enddate').data("DateTimePicker").clear();
-                $('#enddate').data("DateTimePicker").minDate(tempMin);
-                $('#enddate').data("DateTimePicker").maxDate(tempMax);                
-                $('#enddate').data("DateTimePicker").date(tempMin);                
-                $('#enddate').data("DateTimePicker").enable();   
-                return;             
-            }
-            return;
-        });
-
-
-    });
-
-
-
-
-
     var open = true;
     $('#filter').click(function() {
        if (open) {
@@ -298,26 +221,26 @@
        }
        open = !open;
     });
-    </script>
+</script>
 
-    <script>
-        $(function() {
-            $("#q_price_gteq").val('100');
-            $("#q_price_lteq").val('500');
-            $("#slider-range").slider({
-                range: true,
-                min: 0,
-                max: 500,
-                values: [10, 200],
-                slide: function(event, ui) {
-                    $("#q_price_gteq").val(ui.values[0]);
-                    $("#q_price_lteq").val(ui.values[1]);
-                }
-            });
-            
-            $(".ui-widget-header").css('background', '#00A699');
-            $(".ui-state-default, .ui-widget-content").css('background', 'white');
-            $(".ui-state-default, .ui-widget-content").css('border-color', '00A699');
-            
-        })
-    </script>
+<script>
+    $(function() {
+        $("#q_price_gteq").val('100');
+        $("#q_price_lteq").val('500');
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 500,
+            values: [10, 200],
+            slide: function(event, ui) {
+                $("#q_price_gteq").val(ui.values[0]);
+                $("#q_price_lteq").val(ui.values[1]);
+            }
+        });
+        
+        $(".ui-widget-header").css('background', '#00A699');
+        $(".ui-state-default, .ui-widget-content").css('background', 'white');
+        $(".ui-state-default, .ui-widget-content").css('border-color', '00A699');
+        
+    })
+</script>
