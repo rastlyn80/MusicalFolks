@@ -11,11 +11,11 @@
       <%= link_to "MusicalFolks", root_path, class: "navbar-brand" %>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
-        <div class="form-group">
-          <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control", id: "autocompletion" %>
-        </div>
-      <% end %>
+        <% if !current_page?(url_for(:controller => 'pages', :action => 'search')) %>
+          <%= render "shared/search_bar_normal" %>
+        <% else %>
+          <%= render "shared/search_bar_ajax" %>        
+        <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <button class="btn btn-form btn-small">
@@ -47,8 +47,3 @@
   </div>
 </nav>
 
-    <script>
-        $(function() {
-            $("#autocompletion").geocomplete();
-        });
-    </script>

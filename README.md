@@ -3,12 +3,10 @@
 - Fix the password confirmation bug (it doesn't require a confirmation!) in the devise view
 - Pricing will need to be much more flexible.
 - Eventually, the images will be stored on Amazon S3.
-- Refactor the active logic on the _venue_menue page and put it inside a controller
+- Refactor the active logic on the _venue_menu page and put it inside a controller
 - Make geocoder.rb flexible so that you can easily change from km to miles depending on your configuration
-- Turn datepicker into datetime picker
 - Refactor the repeated code inside the Profile view
 - Make the AJAX calls in the search function indipendent from pressing Search
-- Call an AJAX search also with the location text area in the navbar
 
 # VENUE MODEL
 The current state of the Venue Model

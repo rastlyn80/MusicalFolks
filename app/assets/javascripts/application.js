@@ -14,7 +14,6 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
-
 //= require jquery-ui/slider
 //= require rails-ujs
 //= require_tree .
