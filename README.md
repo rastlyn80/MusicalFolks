@@ -6,7 +6,7 @@
 - Refactor the active logic on the _venue_menu page and put it inside a controller
 - Make geocoder.rb flexible so that you can easily change from km to miles depending on your configuration
 - Make the AJAX calls in the search function indipendent from pressing Search
-
+- Make sure that the phone verification does not run twice if the phone number is the same after update
 # VENUE MODEL
 The current state of the Venue Model
 
