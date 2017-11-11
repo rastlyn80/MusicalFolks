@@ -28,6 +28,7 @@ gem 'jquery-ui-rails', '~> 5.0'
 gem 'ransack', '~> 1.7'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'twilio-ruby', '~> 4.11.1'
 
 
 group :development, :test do
