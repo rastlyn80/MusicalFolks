@@ -4,10 +4,8 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
  @import "jquery-ui";
- @import "jquery.datetimepicker.min";
- @import "jquery.periodpicker";
- @import "jquery.timepicker";
-
+ @import 'bootstrap-datetimepicker';
+ 
  body {
      color: #565a5c;
      background-color: #F8F8F8;

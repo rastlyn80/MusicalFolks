@@ -12,10 +12,11 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require jquery-ui/datepicker
+//= require moment
+//= require bootstrap-datetimepicker
+
 //= require jquery-ui/slider
 //= require rails-ujs
 //= require_tree .
 //= require toastr
-//= require jquery.periodpicker.full.min
 
