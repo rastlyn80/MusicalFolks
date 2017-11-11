@@ -52,8 +52,8 @@
   <nav class="navbar navbar-default" style="background-color: #565a5c">
     <div class="container">
       <ul class="nav navbar-nav">
-        <li <% if current_page?(dashboard_path) %> class="active" <% end %> ><%= link_to "Dashboard", dashboard_path %></li>
-        <li <% if current_page?(venues_path) %> class="active" <% end %> ><%= link_to "Manage Listings", venues_path %></li>      
+        <li class = <%= active_if_on_page(dashboard_path) %> ><%= link_to "Dashboard", dashboard_path %></li>
+        <li class = <%= active_if_on_page(venues_path) %> ><%= link_to "Manage Listings", venues_path %></li>      
       </ul>
     </div>
   </nav>

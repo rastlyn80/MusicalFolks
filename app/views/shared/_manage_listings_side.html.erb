@@ -1,0 +1,5 @@
+        <ul class="sidebar-list">
+            <li class="sidebar-item"><%= link_to "Your Listings", venues_path, class:"sidebar-link #{active_if_on_page(venues_path)}" %></li>
+            <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class:"sidebar-link #{active_if_on_page(your_reservations_path)}" %></li>            
+            <li class="sidebar-item"><%= link_to "Your Rehearsals", your_rehearsals_path, class:"sidebar-link #{active_if_on_page(your_rehearsals_path)}" %></li>            
+        </ul>

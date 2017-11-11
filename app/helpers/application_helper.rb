@@ -7,4 +7,8 @@ module ApplicationHelper
             "https://www.gravatar.com/avatar/#{gravatar_id}.jpg"            
         end
     end
+
+    def active_if_on_page(target_page)
+        "active" if current_page?(target_page) 
+    end
 end
